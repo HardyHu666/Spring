@@ -1,6 +1,7 @@
 public class ArrayDemo1 {
 
 	public static void main(String[] args){
+	//创建常量，即总行数
 		final int NMAX = 10;
 		
 		//创建二维数组
