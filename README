@@ -1,1 +1,35 @@
-123
+public class ArrayDemo1 {
+
+	public static void main(String[] args){
+		final int NMAX = 10;
+		
+		//创建二维数组
+		int[][] odds = new int[NMAX + 1] [];
+		for (int n = 0; n <= NMAX; n++) {
+			odds[n] = new int[n + 1];
+		}
+		// fill triangular array
+		for (int n = 0; n < odds.length; n++) {
+			for (int k = 0; k < odds[n].length; k++)
+			{
+				/*
+				 * 杨辉三角 C(n+1,i)=C(n,i)+C(n,i-1)
+				 * 第n行m列元素通项公式为：C(n-1,m-1)=(n-1)!/[(m-1)!(n-m)!]
+				 * 计算二项式 n*(n-l)*(n-2)*...*(n-k+l)/(l*2*3*...*k)
+				*/
+				int lotteryOdds = 1;
+				for (int i = 1;i <= k; i++)
+					lotteryOdds = lotteryOdds * (n - i + 1) / i;
+				odds[n] [k] = lotteryOdds;
+			}
+		}
+		// 输出数组
+		for (int[] row : odds){
+			for (int odd : row) {
+				System.out.printf("%4d" , odd) ;
+			}
+			System.out.println();
+		}
+	}
+}
+	
